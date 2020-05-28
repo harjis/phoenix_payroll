@@ -197,4 +197,292 @@ defmodule PhoenixPayroll.Payroll do
   def change_shift(%Shift{} = shift) do
     Shift.changeset(shift, %{})
   end
+
+  alias PhoenixPayroll.Payroll.TaskType
+
+  @doc """
+  Returns the list of task_types.
+
+  ## Examples
+
+      iex> list_task_types()
+      [%TaskType{}, ...]
+
+  """
+  def list_task_types do
+    Repo.all(TaskType)
+  end
+
+  @doc """
+  Gets a single task_type.
+
+  Raises `Ecto.NoResultsError` if the Task type does not exist.
+
+  ## Examples
+
+      iex> get_task_type!(123)
+      %TaskType{}
+
+      iex> get_task_type!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_task_type!(id), do: Repo.get!(TaskType, id)
+
+  @doc """
+  Creates a task_type.
+
+  ## Examples
+
+      iex> create_task_type(%{field: value})
+      {:ok, %TaskType{}}
+
+      iex> create_task_type(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_task_type(attrs \\ %{}) do
+    %TaskType{}
+    |> TaskType.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a task_type.
+
+  ## Examples
+
+      iex> update_task_type(task_type, %{field: new_value})
+      {:ok, %TaskType{}}
+
+      iex> update_task_type(task_type, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_task_type(%TaskType{} = task_type, attrs) do
+    task_type
+    |> TaskType.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a task_type.
+
+  ## Examples
+
+      iex> delete_task_type(task_type)
+      {:ok, %TaskType{}}
+
+      iex> delete_task_type(task_type)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_task_type(%TaskType{} = task_type) do
+    Repo.delete(task_type)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking task_type changes.
+
+  ## Examples
+
+      iex> change_task_type(task_type)
+      %Ecto.Changeset{source: %TaskType{}}
+
+  """
+  def change_task_type(%TaskType{} = task_type) do
+    TaskType.changeset(task_type, %{})
+  end
+
+  alias PhoenixPayroll.Payroll.WageType
+
+  @doc """
+  Returns the list of wage_types.
+
+  ## Examples
+
+      iex> list_wage_types()
+      [%WageType{}, ...]
+
+  """
+  def list_wage_types do
+    Repo.all(WageType)
+  end
+
+  @doc """
+  Gets a single wage_type.
+
+  Raises `Ecto.NoResultsError` if the Wage type does not exist.
+
+  ## Examples
+
+      iex> get_wage_type!(123)
+      %WageType{}
+
+      iex> get_wage_type!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_wage_type!(id), do: Repo.get!(WageType, id)
+
+  @doc """
+  Creates a wage_type.
+
+  ## Examples
+
+      iex> create_wage_type(%{field: value})
+      {:ok, %WageType{}}
+
+      iex> create_wage_type(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_wage_type(attrs \\ %{}) do
+    %WageType{}
+    |> WageType.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a wage_type.
+
+  ## Examples
+
+      iex> update_wage_type(wage_type, %{field: new_value})
+      {:ok, %WageType{}}
+
+      iex> update_wage_type(wage_type, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_wage_type(%WageType{} = wage_type, attrs) do
+    wage_type
+    |> WageType.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a wage_type.
+
+  ## Examples
+
+      iex> delete_wage_type(wage_type)
+      {:ok, %WageType{}}
+
+      iex> delete_wage_type(wage_type)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_wage_type(%WageType{} = wage_type) do
+    Repo.delete(wage_type)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking wage_type changes.
+
+  ## Examples
+
+      iex> change_wage_type(wage_type)
+      %Ecto.Changeset{source: %WageType{}}
+
+  """
+  def change_wage_type(%WageType{} = wage_type) do
+    WageType.changeset(wage_type, %{})
+  end
+
+  alias PhoenixPayroll.Payroll.Task
+
+  @doc """
+  Returns the list of tasks.
+
+  ## Examples
+
+      iex> list_tasks()
+      [%Task{}, ...]
+
+  """
+  def list_tasks do
+    Repo.all(Task)
+  end
+
+  @doc """
+  Gets a single task.
+
+  Raises `Ecto.NoResultsError` if the Task does not exist.
+
+  ## Examples
+
+      iex> get_task!(123)
+      %Task{}
+
+      iex> get_task!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_task!(id), do: Repo.get!(Task, id)
+
+  @doc """
+  Creates a task.
+
+  ## Examples
+
+      iex> create_task(%{field: value})
+      {:ok, %Task{}}
+
+      iex> create_task(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_task(attrs \\ %{}) do
+    %Task{}
+    |> Task.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a task.
+
+  ## Examples
+
+      iex> update_task(task, %{field: new_value})
+      {:ok, %Task{}}
+
+      iex> update_task(task, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_task(%Task{} = task, attrs) do
+    task
+    |> Task.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a task.
+
+  ## Examples
+
+      iex> delete_task(task)
+      {:ok, %Task{}}
+
+      iex> delete_task(task)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_task(%Task{} = task) do
+    Repo.delete(task)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking task changes.
+
+  ## Examples
+
+      iex> change_task(task)
+      %Ecto.Changeset{source: %Task{}}
+
+  """
+  def change_task(%Task{} = task) do
+    Task.changeset(task, %{})
+  end
 end
