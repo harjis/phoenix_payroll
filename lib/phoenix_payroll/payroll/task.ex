@@ -5,7 +5,7 @@ defmodule PhoenixPayroll.Payroll.Task do
   schema "tasks" do
     field :end_time, :naive_datetime
     field :start_time, :naive_datetime
-    field :task_type_id, :id
+    belongs_to :task_type
 
     timestamps()
   end

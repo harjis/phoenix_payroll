@@ -4,7 +4,8 @@ defmodule PhoenixPayroll.Payroll.Shift do
 
   schema "shifts" do
     field :date, :date
-    field :employee_id, :id
+    belongs_to :employee
+    has_many :tasks
 
     timestamps()
   end

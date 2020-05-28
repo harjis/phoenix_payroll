@@ -4,7 +4,7 @@ defmodule PhoenixPayroll.Repo.Migrations.CreateShifts do
   def change do
     create table(:shifts) do
       add :date, :date
-      add :employee_id, references(:employees, on_delete: :nothing)
+      add :employee_id, references(:employees, on_delete: :nothing), null: false
 
       timestamps()
     end

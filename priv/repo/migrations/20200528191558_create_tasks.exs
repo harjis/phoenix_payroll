@@ -5,7 +5,7 @@ defmodule PhoenixPayroll.Repo.Migrations.CreateTasks do
     create table(:tasks) do
       add :start_time, :naive_datetime
       add :end_time, :naive_datetime
-      add :task_type_id, references(:task_types, on_delete: :nothing)
+      add :task_type_id, references(:task_types, on_delete: :nothing), null: false
 
       timestamps()
     end

@@ -4,6 +4,7 @@ defmodule PhoenixPayroll.Payroll.TaskType do
 
   schema "task_types" do
     field :task_type, :string
+    has_many :tasks
 
     timestamps()
   end

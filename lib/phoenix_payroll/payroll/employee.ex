@@ -4,6 +4,7 @@ defmodule PhoenixPayroll.Payroll.Employee do
 
   schema "employees" do
     field :name, :string
+    has_many :shifts
 
     timestamps()
   end
