@@ -17,3 +17,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+```shell script
+mix phx.gen.json Payroll Employee employees name:string
+mix phx.gen.context Payroll Shift shifts date:date employee_id:references:employees
+```
