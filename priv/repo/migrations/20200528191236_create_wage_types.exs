@@ -7,6 +7,5 @@ defmodule PhoenixPayroll.Repo.Migrations.CreateWageTypes do
 
       timestamps()
     end
-
   end
 end

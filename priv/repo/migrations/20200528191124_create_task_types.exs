@@ -7,6 +7,5 @@ defmodule PhoenixPayroll.Repo.Migrations.CreateTaskTypes do
 
       timestamps()
     end
-
   end
 end

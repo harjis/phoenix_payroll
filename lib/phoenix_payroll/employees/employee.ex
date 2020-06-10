@@ -1,10 +1,12 @@
-defmodule PhoenixPayroll.Payroll.Employee do
+defmodule PhoenixPayroll.Employees.Employee do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias PhoenixPayroll.Shifts.Shift
+
   schema "employees" do
     field :name, :string
-    has_many :shifts
+    has_many :shifts, Shift
 
     timestamps()
   end

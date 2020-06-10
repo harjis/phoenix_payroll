@@ -7,6 +7,5 @@ defmodule PhoenixPayroll.Repo.Migrations.CreateEmployees do
 
       timestamps()
     end
-
   end
 end
