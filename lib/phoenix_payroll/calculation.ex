@@ -8,12 +8,15 @@ defmodule PhoenixPayroll.Payroll.Calculation do
   defmacrop create_and_drop_temporary_table(do: yield) do
     quote do
       {:ok, result} =
-        Repo.transaction(fn ->
-          create_temporary_table()
-          result = unquote(yield)
-          drop_temporary_table()
-          result
-        end)
+        Repo.transaction(
+          fn ->
+            create_temporary_table()
+            result = unquote(yield)
+            drop_temporary_table()
+            result
+          end,
+          timeout: :infinity
+        )
 
       result
     end

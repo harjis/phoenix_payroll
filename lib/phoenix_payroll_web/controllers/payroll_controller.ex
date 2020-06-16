@@ -4,7 +4,7 @@ defmodule PhoenixPayrollWeb.PayrollController do
   alias PhoenixPayroll.Payroll.Calculation
 
   def index(conn, %{"start_date" => start_date, "end_date" => end_date}) do
-    records = Calculation.calculate(start_date, end_date)
-    render(conn, "index.json", records: records)
+    payrolls = Calculation.calculate(start_date, end_date)
+    render(conn, "index.json", payrolls: payrolls)
   end
 end
