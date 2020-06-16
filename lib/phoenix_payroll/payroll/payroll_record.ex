@@ -3,6 +3,7 @@ defmodule PhoenixPayroll.Payroll.PayrollRecord do
   import Ecto.Changeset
   import Ecto.Query
 
+  alias PhoenixPayroll.Repo
   alias PhoenixPayroll.Payroll.PayrollRecord
 
   @primary_key false
@@ -32,16 +33,15 @@ defmodule PhoenixPayroll.Payroll.PayrollRecord do
   end
 
   def create_temporary_table do
-    Ecto.Adapters.SQL.query!(
-      PhoenixPayroll.Repo,
+    IO.puts("create_temporary_table")
+
+    Repo.query!(
       "CREATE TEMP TABLE payroll_records(wage_type_id INT, employee_id INT, date DATE, hours FLOAT);"
     )
   end
 
   def drop_temporary_table do
-    Ecto.Adapters.SQL.query!(
-      PhoenixPayroll.Repo,
-      "DROP TABLE payroll_records;"
-    )
+    IO.puts("drop_temporary_table")
+    Repo.query!("DROP TABLE IF EXISTS payroll_records;")
   end
 end

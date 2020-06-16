@@ -19,8 +19,9 @@ defmodule PhoenixPayrollWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixPayrollWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixPayrollWeb do
+    pipe_through :api
+
+    get "/payroll", PayrollController, :index
+  end
 end
