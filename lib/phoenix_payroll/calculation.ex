@@ -25,6 +25,7 @@ defmodule PhoenixPayroll.Payroll.Calculation do
   def calculate(start_date, end_date) do
     create_and_drop_temporary_table do
       tasks = get_tasks(start_date, end_date)
+      IO.puts("Tasks: #{length(tasks)}")
       create_payroll_records(tasks)
       aggregate_payroll_records()
     end
@@ -39,19 +40,21 @@ defmodule PhoenixPayroll.Payroll.Calculation do
 
   defp create_payroll_records(tasks) do
     tasks
-    |> Enum.each(fn task ->
+    |> Enum.map(fn task ->
       [first_wage_type | _tail] = task.task_type.wage_types
       employee_id = task.shift.employee_id
       date = task.shift.date
+      # TODO Duration in hours might not take minutes into account
       duration_in_hours = Timex.diff(task.end_time, task.start_time, :hours)
 
-      Payroll.create_payroll_record(%{
+      %{
         wage_type_id: first_wage_type.id,
         employee_id: employee_id,
         date: date,
-        hours: duration_in_hours
-      })
+        hours: duration_in_hours / 1
+      }
     end)
+    |> Payroll.create_payroll_records()
   end
 
   defp aggregate_payroll_records() do

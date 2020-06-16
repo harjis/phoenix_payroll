@@ -12,6 +12,11 @@ defmodule PhoenixPayroll.Payroll do
     |> Repo.insert()
   end
 
+  def create_payroll_records(records) do
+    PayrollRecord
+    |> Repo.insert_all(records)
+  end
+
   @doc """
   Returns the list of wage_types.
 
