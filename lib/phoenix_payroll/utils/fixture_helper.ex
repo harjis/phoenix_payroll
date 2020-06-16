@@ -95,7 +95,7 @@ defmodule PhoenixPayroll.FixtureHelper do
   def wage_type_fixture(attrs \\ %{}) do
     {:ok, wage_type} =
       attrs
-      |> Enum.into(valid_wage_type_attrs)
+      |> Enum.into(valid_wage_type_attrs())
       |> Payroll.create_wage_type()
 
     wage_type
