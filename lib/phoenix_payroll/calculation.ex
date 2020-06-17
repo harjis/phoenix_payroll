@@ -25,7 +25,6 @@ defmodule PhoenixPayroll.Payroll.Calculation do
   def calculate(start_date, end_date) do
     create_and_drop_temporary_table do
       tasks = get_tasks(start_date, end_date)
-      IO.puts("Tasks: #{length(tasks)}")
       create_payroll_records(tasks)
       aggregate_payroll_records()
     end
