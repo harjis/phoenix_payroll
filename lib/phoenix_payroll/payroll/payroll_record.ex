@@ -33,9 +33,12 @@ defmodule PhoenixPayroll.Payroll.PayrollRecord do
   end
 
   def create_temporary_table do
-    Repo.query!(
-      "CREATE TEMP TABLE payroll_records(wage_type_id INT, employee_id INT, date DATE, hours FLOAT);"
-    )
+    Repo.query!("CREATE TEMP TABLE payroll_records(
+      wage_type_id INT NOT NULL,
+      employee_id INT NOT NULL,
+      date DATE NOT NULL,
+      hours FLOAT NOT NULL
+      );")
   end
 
   def drop_temporary_table do
